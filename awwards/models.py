@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.dispatch import receiver
 from django.db.models.signals import pre_delete
-import cloudinary
+from cloudinary.models import CloudinaryField
 import datetime as dt
 
 # Create your models here.
@@ -10,6 +10,19 @@ class Profile(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE,null=True)
     bio = models.TextField(null=True)
     profile_photo= CloudinaryField('profile_photo',null=True)
+    
+  
+    
+    def __str__(self):
+       return f'{self.user.username}Profile'  
+class Project(models.Model):
+    title = models.CharField(max_length=255)
+    project_image = CloudinaryField('project_image',null=True)
+    pub_date = models.DateTimeField(auto_now_add=True,null=True,blank=True)
+    description = models.TextField()
+    link = models.CharField(max_length=255,null=True)
+    porf_ref = models.ForeignKey(Profile,on_delete=models.CASCADE,related_name='projects',null=True)
+    author=models.ForeignKey(User,on_delete=models.CASCADE)
     
     def no_of_ratings (self):
         ratings = Rating.objects.filter(project=self)
@@ -28,16 +41,6 @@ class Profile(models.Model):
     def search_project(cls,search_item):
         projs = cls.objects.filter(title__icontains =search_item )
         return projs
-    
-    def __str__(self):
-       return f'{self.user.username}Profile'  
-class Project(models.Model):
-    title = models.CharField(max_length=255)
-    profile_picture = CloudinaryField('project_image',null=True)
-    pub_date = models.DateTimeField(auto_now_add=True,null=True,blank=True)
-    description = models.TextField()
-    porf_ref = models.ForeignKey(Profile,on_delete=models.CASCADE,related_name='projects',null=True)
-    
     
     def __str__(self) :
         return self.title
