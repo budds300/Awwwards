@@ -4,6 +4,8 @@ from django.dispatch import receiver
 from django.db.models.signals import pre_delete
 from cloudinary.models import CloudinaryField
 import datetime as dt
+from PIL import Image
+import cloudinary
 
 # Create your models here.
 class Profile(models.Model):
@@ -37,10 +39,10 @@ class Project(models.Model):
             return sum/len(ratings)
         else:
             return 0
-        
+    @classmethod  
     def search_project(cls,search_item):
-        projs = cls.objects.filter(title__icontains =search_item )
-        return projs
+        projects = cls.objects.filter(title__icontains= search_item )
+        return projects
     
     def __str__(self) :
         return self.title
