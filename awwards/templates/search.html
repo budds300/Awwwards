@@ -3,10 +3,11 @@
 {%block content%}
 <div class="container">
     <div class="row pt-5">
-    {% if projects%}
+    {% if projects %}
     <h2> {{projects|length}} items of {{message}} </h2>
     {%else%}
-    <h2> No {{message}}s found </h2>
+    <h2> Found 0 projects for the search term {{message}}</h2>
+    {%endif%}
 </div>
 
 <div class="row pt-5">
@@ -14,10 +15,11 @@
 {%for project in projects%}
 <div class="col-sm-6 col-md-6 pt-3">
     <h2> {{project.title}}</h2>
-    <a href=" {%url 'project-detail, project.id%}"><img src=" {{project.project_image.url}} " alt="{{project.title}}" class="img-fluid img-responsive"></a>
+    <a href=" {%url 'project' project.id%}"><img src=" {{project.project_image.url}} " alt="{{project.title}}" class="img-fluid img-responsive"></a>
 </div>
 {%endfor%}
 {%endif%}
 </div>
 </div>
+{%endblock%}
 
