@@ -170,9 +170,9 @@ LOGIN_URL = 'login'
 
 
 cloudinary.config(
-    cloud_name =config ('CLOUD_API_KEY'),
-    api_key =config('CLOUD_API_KEY'),
-    api_secret = config('CLOUD_API_SECRET')
+    cloud_name ='dorvaflc1',
+    api_key ='749346157269235',
+    api_secret ='9vFezvE23Pigwmczbim12NLoayk'
 )
 
 
