@@ -1,0 +1,34 @@
+h1, h2 {
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#h1main {
+    font-size: 320%;
+}
+
+#cardoffwhite {
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 1%;
+}
+
+.underline {
+    text-decoration: underline;
+
+}
+
+.zoom {
+    transition: transform .2s; 
+}
+  
+.zoom:hover {
+    transform: scale(1.02); 
+    border: 3px solid #114e8b;
+    overflow: hidden;  
+}
+
+.fadeout{
+    transition: opacity 0.1s;
+
+}
