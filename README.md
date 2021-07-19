@@ -1,6 +1,6 @@
 
 # Awwwards App
-This  project is a [Awwwards]() clone website where users can  post their websites and it gets rated by other users,they also can rate other users' websites
+This  project is a [Awwwards](https://awwwwwwwards.herokuapp.com) clone website where users can  post their websites and it gets rated by other users,they also can rate other users' websites
 
 Here is the landing page
 ![landing page](landing1.png)
@@ -23,6 +23,7 @@ This is the page where a user can rate a project
 * The posted sites landing page are clickable which direct the user to  a new page with more details about the site and also a rate button where a user can click on it and rate the page
 * The usernames on the posted sites are also clickable which directs the users to owners of the posted sites
 * The app has a functioning authentication system where users can login  and register
+* The project also has an api of the [profile](https://awwwwwwwards.herokuapp.com/api/profile/) and [projects](https://awwwwwwwards.herokuapp.com/api/projects/) posted
 
 ## Installations 
 For this project to run one needs python  and pip installations
